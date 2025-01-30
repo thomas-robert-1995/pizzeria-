@@ -5,10 +5,13 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Inscription</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="inscription.css">
 </head>
-<body>
 
-        <!-- Formulaire d'inscription -->
+
+<!-- Formulaire d'inscription -->
+<div class="formulaire">
+    <h1>Inscription</h1>
 <form method="POST" action="">
     <label for="nom">Votre nom</label>
     <input type="text" id="nom" name="nom" placeholder="Entrez votre nom..." required><br />
@@ -27,6 +30,7 @@
     <br />
     <input type="submit" value="M'inscrire" name="inscription">
 </form>
+</div>
 
 </body>
 </html>
@@ -51,6 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // Hashage du mot de passe avant insertion
+    $hashed_mdp = password_hash($mdp, PASSWORD_DEFAULT);
+
     // connexion à la base de données
     $servername = "localhost";
     $username = "root";
@@ -65,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare("INSERT INTO users (nom, prenom, pseudo, email, mdp) VALUES (?, ?, ?, ?, ?)");
 
         // lier les paramètres et exécuter la requête
-        $stmt->execute([$nom, $prenom, $pseudo, $email, $mdp]);
+        $stmt->execute([$nom, $prenom, $pseudo, $email, $hashed_mdp]);
 
         echo "Inscription réussie!";
     } catch (PDOException $e) {
