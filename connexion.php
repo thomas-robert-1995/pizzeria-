@@ -5,11 +5,13 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Connexion</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
         <!-- Formulaire de connexion -->
-
+<div class="formulaire">
+    <h1>Connexion</h1>
 <form method="POST" action="">
     <label for="email">Votre e-mail</label>
     <input type="text" id="email" name="email" placeholder="Entrez votre e-mail..." required><br />
@@ -19,6 +21,7 @@
     <br />
     <input type="submit" value="Se connecter" name="connexion">
 </form>
+</div>
 
 </body>
 </html>
