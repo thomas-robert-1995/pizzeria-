@@ -74,14 +74,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // lier les paramètres et exécuter la requête
         $stmt->execute([$nom, $prenom, $pseudo, $email, $hashed_mdp]);
 
+        // Affichage de la réussite de l'inscription
         echo "Inscription réussie!";
-      
+
+        // Redirection vers la page connexion.php après une inscription réussie
+        header("Location: connexion.php");
+        exit(); // Stoppe l'exécution du script après la redirection
+
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
-       
     }
 
     // Fermer la connexion
     $conn = null;
 }
 ?>
+
