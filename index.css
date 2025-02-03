@@ -1,87 +1,110 @@
+/* Réinitialisation des marges et du remplissage */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
+/* Style du body */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    height: 100dvh;
-    overflow-x: hidden;
-    background: url('images/000511896_1200x800_c.jpg');
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/000511896_1200x800_c.jpg');
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-h1 {
-    text-align: center;
-}
-
-.box_pizza1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 5%;
-}
-
-.box_pizza2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 5%;
-}
-
-img {
-    width: 250px
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-}
-
-.formulaire {
-    text-align: center;
-    border: 2 rgb(255, 255, 255);
-    box-shadow: 2cm rgb(255, 255, 255);
-    width: 50dvh;
-    align-items: center;
-    border-radius: 50px;
-    padding: 10px;
-    background-color: black;
-    color: white;
-}
-
-h1 {
-    padding: 10px;
-}
-
-form {
-    padding: 10px;
-    justify-content: flex-end;
+    color: #fff;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: -10px;
+    justify-content: flex-start;
+    padding: 20px;
 }
 
-input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
+/* Titre principal */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #f7f7f7;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ff6a00;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
-a {
+
+/* Boîte des pizzas */
+.box_pizza1, .box_pizza2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacement entre les pizzas */
+    margin: 40px 0;
+}
+
+.pizza1, .pizza2, .pizza3, .pizza4, .pizza5, .pizza6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol */
+.pizza1:hover, .pizza2:hover, .pizza3:hover, .pizza4:hover, .pizza5:hover, .pizza6:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image des pizzas */
+img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Bouton "Ajouter" */
+input[type="submit"] {
+    background-color: #ff6a00;
     color: white;
-    text-decoration: none;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: 1px solid rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
+
+input[type="submit"]:hover {
+    background-color: #e55c00;
+}
+
+/* Style général pour les containers */
+.container {
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Formulaire */
+.formulaire {
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    color: #f7f7f7;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Texte dans le formulaire */
+form {
+    display: flex;
+    flex-direction:
