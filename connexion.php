@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
 
         if ($user && password_verify($mdp, $user['mdp'])) { // Vérifier si le mot de passe correspond
             echo "Connexion réussie!";
+            
             // Vous pouvez également démarrer une session et stocker des informations utilisateur
             session_start();
             header("Location: plat.html");
@@ -41,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
-        header("Location: inscription.html");
     }
 
     // Fermer la connexion
