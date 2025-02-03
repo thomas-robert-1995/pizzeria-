@@ -1,31 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Connexion</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-
-        <!-- Formulaire de connexion -->
-<div class="formulaire">
-    <h1>Connexion</h1>
-<form method="POST" action="">
-    <label for="email">Votre e-mail</label>
-    <input type="text" id="email" name="email" placeholder="Entrez votre e-mail..." required><br />
-    <br />
-    <label for="password">Votre mot de passe</label>
-    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe..." required><br />
-    <br />
-    <input type="submit" value="Se connecter" name="connexion">
-</form>
-</div>
-
-</body>
-</html>
-
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
@@ -60,13 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
             echo "Connexion réussie!";
             // Vous pouvez également démarrer une session et stocker des informations utilisateur
             session_start();
+            header("Location: plat.html");
             $_SESSION['user_id'] = $user['id']; // Par exemple, enregistrer l'ID de l'utilisateur
             $_SESSION['user_email'] = $user['email'];
+            
         } else {
             echo "E-mail ou mot de passe incorrect.";
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
+        header("Location: inscription.html");
     }
 
     // Fermer la connexion

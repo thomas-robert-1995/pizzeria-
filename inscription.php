@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Inscription</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="index.css">
-</head>
 
-
-<!-- Formulaire d'inscription -->
-<div class="formulaire">
-    <h1>Inscription</h1>
-<form method="POST" action="">
-    <label for="nom">Votre nom</label>
-    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom..." required><br />
-    <br />
-    <label for="prenom">Votre prénom</label>
-    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prenom..." required><br />
-    <br />
-    <label for="pseudo">Votre pseudo</label>
-    <input type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo..." required><br />
-    <br />
-    <label for="email">Votre e-mail</label>
-    <input type="text" id="email" name="email" placeholder="Entrez votre e-mail..." required><br />
-    <br />
-    <label for="password">Votre mot de passe</label>
-    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe..." required><br />
-    <br />
-    <input type="submit" value="M'inscrire" name="inscription">
-</form>
-</div>
-
-</body>
-</html>
 
 <?php
 
@@ -75,8 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$nom, $prenom, $pseudo, $email, $hashed_mdp]);
 
         echo "Inscription réussie!";
+        header("Location: connexion.html");
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
+        header("Location: index.html");
     }
 
     // Fermer la connexion
